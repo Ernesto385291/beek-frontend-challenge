@@ -1,68 +1,62 @@
 import styled from "styled-components"
+import { BsThreeDotsVertical } from "react-icons/bs"
 
 export const Container = styled.div`
-  background-color: #fff;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 15px;
-  margin-bottom: 5px;
-  border-radius: 15px;
-`
-
-export const Content = styled.aside`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  border-bottom: 1px solid #edeef2;
+  display: grid;
+  grid-template-columns: 5% 50% 20% 20% 5%;
+  grid-template-rows: 48px;
+  grid-column-gap: 10px;
 `
 
 export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-content: center;
-
+  align-items: center;
   img {
-    border-radius: 10px;
+    border-radius: 2px;
+    object-fit: cover;
   }
 `
 
-export const Details = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-`
 export const Title = styled.h4`
   margin: 0;
   padding: 0;
   color: #262626;
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   display: flex;
   align-items: center;
 `
 
-export const Author = styled.p`
-  color: #898a8c;
-  font-size: 12px;
-  margin: 0;
-  font-weight: 400;
-`
-export const Options = styled.aside`
+export const InformationContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 `
-export const OptionButton = styled.button`
-  background-color: ${(props) => props.Color};
-  border: none;
-  outline: none;
-  color: #fff;
-  border-radius: 25px;
-  font-size: 15px;
-  width: 100%;
-  height: 26px;
+
+export const Name = styled.p`
+  color: #aaaaaa;
+  font-size: 14px;
+  margin: 0;
+`
+
+export const OptionsIcon = styled(BsThreeDotsVertical)`
+  cursor: pointer;
+`
+export const Options = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  position: absolute;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #aaaaaa;
+`
+
+export const Option = styled.p`
+  margin: 5px 0px;
+  cursor: pointer;
+  color: ${(props) => props.color || "#262626"};
 `

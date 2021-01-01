@@ -4,7 +4,7 @@ import Head from "next/head"
 import { Header } from "../components/Header"
 import { ListOfAudiobooks } from "../components/ListOfAudiobooks"
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   // Call an external API endpoint to get audiobooks.
   const res = await fetch(
     "https://api.contentful.com/spaces/1t4hjzo7y0kb/environments/master/entries?select=fields,sys.id,sys.version&locale=es-MX&content_type=audiocontent-v12",

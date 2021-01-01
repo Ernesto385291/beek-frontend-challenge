@@ -1,55 +1,62 @@
-import React from "react"
-import Image from "next/image"
-import { MdEdit, MdDelete } from "react-icons/md"
+import React, { useState } from "react"
 import { GoVerified } from "react-icons/go"
+
+import { DeleteAudiobookButton } from "../DeleteAudiobookButton"
+import { EditAudiobookButton } from "../EditAudiobookButton"
 
 import {
   Container,
-  Details,
-  Content,
-  Title,
-  Author,
   ImageContainer,
+  Title,
+  InformationContainer,
+  Name,
+  OptionsIcon,
   Options,
-  OptionButton,
+  Option,
 } from "./styles"
 
 export const AudiobookCard = ({ fields, sys }) => {
+  const [options, setOptions] = useState(false)
+
   return (
     <Container>
-      <Content>
-        <ImageContainer>
-          <Image
-            src={fields.cover["es-MX"]}
-            alt={fields.title["es-MX"]}
-            width={60}
-            height={60}
-            objectFit="cover"
-          />
-        </ImageContainer>
-        <Details>
-          <Title>
-            {fields.title["es-MX"]}
-            {fields.is_original["es-MX"] ? (
-              <GoVerified style={{ marginLeft: 10 }} />
-            ) : null}
-          </Title>
-          <div>
-            <Author>{fields.authors["es-MX"]}</Author>
-            <Author>{fields.narrators["es-MX"]}</Author>
-          </div>
-        </Details>
-      </Content>
-      <Options>
-        <OptionButton Color="#287EF6">
-          Edit
-          <MdEdit />
-        </OptionButton>
-        <OptionButton Color="#EE5152">
-          Delete
-          <MdDelete />
-        </OptionButton>
-      </Options>
+      <ImageContainer>
+        <img
+          src={fields.cover["es-MX"]}
+          alt={fields.title["es-MX"]}
+          width={35}
+          height={35}
+          loading="lazy"
+        />
+      </ImageContainer>
+      <Title>
+        {fields.title["es-MX"]}
+        {fields.is_original["es-MX"] ? (
+          <GoVerified style={{ marginLeft: 5 }} />
+        ) : null}
+      </Title>
+
+      <InformationContainer>
+        {fields.authors["es-MX"].map((author, index) => (
+          <Name key={index}>{author}</Name>
+        ))}
+      </InformationContainer>
+
+      <InformationContainer>
+        {fields.narrators["es-MX"].map((narrator, index) => (
+          <Name key={index}>{narrator}</Name>
+        ))}
+      </InformationContainer>
+
+      <div>
+        <OptionsIcon onClick={() => setOptions(!options)} size={19} />
+        {options ? (
+          <Options>
+            <EditAudiobookButton fields={fields} sys={sys} />
+            <DeleteAudiobookButton {...sys} />
+          </Options>
+        ) : null}
+      </div>
     </Container>
   )
 }

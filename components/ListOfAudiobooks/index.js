@@ -1,20 +1,21 @@
 import React from "react"
 import { AudiobookCard } from "../AudiobookCard"
 
-import { Container, Header, Total } from "./styles"
+import { Container, Header, Total, Title } from "./styles"
 
 export const ListOfAudiobooks = ({ data }) => {
   return (
     <Container>
       <Header>
-        <h1>Audiobooks</h1>
-        <Total>
-          <p>Total: {data.total}</p>
-        </Total>
+        <Title>Audiobooks</Title>
+        <Total>Total: {data.total}</Total>
       </Header>
-      {data.items.map((audiobook) => {
-        return <AudiobookCard {...audiobook} />
-      })}
+
+      <div>
+        {data.items.map((audiobook) => {
+          return <AudiobookCard key={audiobook.sys.id} {...audiobook} />
+        })}
+      </div>
     </Container>
   )
 }
