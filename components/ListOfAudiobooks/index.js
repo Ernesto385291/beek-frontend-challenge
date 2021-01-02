@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
 import { AudiobookCard } from "../AudiobookCard"
 
 import { Container, Header, Total, Title } from "./styles"
+import SearchContext from "../../context/SearchContext"
 
 export const ListOfAudiobooks = ({ data }) => {
+  const { searchData, setSearchData } = useContext(SearchContext)
   return (
     <Container>
       <Header>
@@ -12,9 +14,13 @@ export const ListOfAudiobooks = ({ data }) => {
       </Header>
 
       <div>
-        {data.items.map((audiobook) => {
-          return <AudiobookCard key={audiobook.sys.id} {...audiobook} />
-        })}
+        {searchData
+          ? searchData.items.map((audiobook) => {
+              return <AudiobookCard key={audiobook.sys.id} {...audiobook} />
+            })
+          : data.items.map((audiobook) => {
+              return <AudiobookCard key={audiobook.sys.id} {...audiobook} />
+            })}
       </div>
     </Container>
   )
