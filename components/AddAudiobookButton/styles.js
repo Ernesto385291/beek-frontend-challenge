@@ -4,7 +4,7 @@ export const Button = styled.button`
   background-color: #36d7dc;
   color: #232529;
   font-size: 13px;
-  width: 13%;
+  width: 15%;
   font-weight: 500;
   padding: 0px 16px;
   height: 38px;
@@ -21,6 +21,16 @@ export const Button = styled.button`
     border: 1px solid #36d7dc;
     background-color: #fff;
   }
+  /* @media (max-width: 1101px) {
+    font-size: 12px;
+    width: 13%;
+    padding: 0px 13px;
+  }
+  @media (max-width: 1000px) {
+    font-size: 12px;
+    width: 15%;
+    padding: 0px 13px;
+  } */
 `
 export const InputContainer = styled.div`
   display: flex;

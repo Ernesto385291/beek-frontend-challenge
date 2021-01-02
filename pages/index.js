@@ -29,8 +29,8 @@ export default function Home({ audiobooks }) {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Beek Frontend Challenge</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <Header />
       <ListOfAudiobooks data={audiobooks} />

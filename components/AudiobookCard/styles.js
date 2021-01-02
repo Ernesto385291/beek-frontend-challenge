@@ -27,6 +27,9 @@ export const Title = styled.h4`
   font-weight: 500;
   display: flex;
   align-items: center;
+  @media (max-width: 940px) {
+    font-size: 13px;
+  }
 `
 
 export const InformationContainer = styled.div`
@@ -40,6 +43,9 @@ export const Name = styled.p`
   color: #aaaaaa;
   font-size: 14px;
   margin: 0;
+  @media (max-width: 940px) {
+    font-size: 11px;
+  }
 `
 
 export const OptionsIcon = styled(BsThreeDotsVertical)`

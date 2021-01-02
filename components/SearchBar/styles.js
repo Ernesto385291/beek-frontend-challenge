@@ -4,7 +4,7 @@ export const Container = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 65%;
   background-color: #ececec;
   border-radius: 20px;
   padding: 1px 5px 1px 20px;
